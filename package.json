@@ -1,6 +1,6 @@
 {
   "name": "xliff",
-  "version": "6.1.1",
+  "version": "6.1.2",
   "description": "xliff2js and js2xliff converter xliff utils",
   "type": "module",
   "main": "./cjs/index.js",
@@ -119,6 +119,7 @@
   },
   "module": "./esm/index.js",
   "dependencies": {
+    "rimraf": "^5.0.0",
     "xml-js": "1.6.11"
   },
   "devDependencies": {
@@ -141,8 +142,8 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "compile:esm": "rm -rf esm && mkdir esm && cross-env BABEL_ENV=esm babel lib -d esm",
-    "compile:cjs": "rm -rf cjs && mkdir cjs && cross-env BABEL_ENV=cjs babel lib -d cjs && node -e \"console.log(JSON.stringify({type:'commonjs'}))\" > cjs/package.json",
+    "compile:esm": "npx rimraf esm && cross-env BABEL_ENV=esm babel lib -d esm",
+    "compile:cjs": "npx rimraf cjs && cross-env BABEL_ENV=cjs babel lib -d cjs && node -e \"console.log(JSON.stringify({type:'commonjs'}))\" > cjs/package.json",
     "compile": "npm run compile:esm && npm run compile:cjs",
     "browser": "browserify --standalone xliff cjs/index.js -o xliff.js && uglifyjs xliff.js --compress --mangle -o xliff.min.js",
     "build": "npm run compile && npm run browser",
