@@ -1,0 +1,13 @@
+{
+    "resources": {
+      "namespace1": {
+        "transitions": {
+          "source": "Resumen previsión",
+          "target": "Resumo previsão"
+        }
+      }
+    },
+    "sourceLanguage": "es",
+    "targetLanguage": "pt"
+  }
+  

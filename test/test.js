@@ -497,3 +497,13 @@ describe('Ignorable non-segments', ()=>{
     })
   })
 })
+
+describe('multisegment', () => {
+  test('xliff2js', (fn) => (done) => {
+    fn(fixtures.example_multisegment.xliff, { namespace: 'namespace1' }, (err, res) => {
+      expect(err).not.to.be.ok()
+      expect(res).to.eql(fixtures.example_multisegment.js)
+      done()
+    })
+  })
+})

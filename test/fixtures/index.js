@@ -73,5 +73,9 @@ module.exports = {
   },
   example_empty:{
     xliff12: fixNewLines(fs.readFileSync(path.join(__dirname, 'example_empty12.xliff')).toString())
+  },
+  example_multisegment: {
+    js: require('./example_multisegment'),
+    xliff: fixNewLines(fs.readFileSync(path.join(__dirname, 'example_multisegment.xliff')).toString())
   }
 }
